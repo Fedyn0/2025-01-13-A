@@ -27,6 +27,7 @@ class Controller:
                 ft.Text(f"{a[0].GeneID} <-> {a[1].GeneID}: peso {a[2]["weight"]}")
             )
         self._view.btn_analizza_grafo.disabled = False
+        self._view.btn_path.disabled = False
         self._view.update_page()
 
 
@@ -52,7 +53,10 @@ class Controller:
         self._view.update_page()
 
     def handle_path(self, e):
-        pass
+        list = self._model.path()
+        self._view.txt_result.controls.append(
+            ft.Text(f"La sequenza di cromosomi più lunga è: {list}")
+        )
 
     def fillDDLocalization(self):
         listaLocalizations = self._model.getAllLocalizations()
@@ -64,6 +68,5 @@ class Controller:
 
     def ableBtn(self, e):
         self._view.btn_graph.disabled = False
-        self._view.btn_analizza_grafo.disabled = True
         self._view.update_page()
 

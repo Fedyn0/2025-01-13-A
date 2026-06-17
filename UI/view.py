@@ -51,6 +51,7 @@ class View(ft.UserControl):
 
         self.btn_path = ft.ElevatedButton(text="Cammino",
                                           tooltip="Trova cammino ottimo",
+                                          disabled= True,
                                           on_click=self._controller.handle_path)
 
 
